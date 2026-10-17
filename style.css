@@ -1,18 +1,114 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Courier New", Courier, monospace;
     margin: 0;
     padding: 0;
     line-height: 1.8;
     background-color: #ffe4e1; /* Soft pink arka plan */
+    background-image: radial-gradient(circle, #9370db 2px, transparent 2px), radial-gradient(circle, #ff69b4 2px, transparent 2px), radial-gradient(circle, #fffacd 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px, 10px 30px;
 }
-
+/* Papyrus font başlıklar için */
+h1, h2, h3 {
+    font-family: 'Papyrus', fantasy;
+    font-weight: normal;
+    color: #333; /* isteğe göre pastel renkler de eklenebilir */
+}
 /* Üst Menü (Header) */
 header {
     background: #fff9c4; /* Soft pastel yellow */
     color: #333;
     padding: 15px 0;
     font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-between; /* Menü solda, tarih+buton sağda */
+    align-items: center;
 }
+/* Google Fonts Lora */
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Lora', serif;
+    font-size: 1.1em;
+}
+
+/* Switch buton */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #9370db; /* soft purple */
+    transition: .4s;
+    border-radius: 26px;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+input:checked + .slider {
+    background-color: #ff69b4; /* soft pink */
+}
+
+    input:checked + .slider:before {
+        transform: translateX(24px);
+    }
+
+/* Dark mode */
+.dark-mode {
+    background-color: #000;
+    color: #fff;
+    background-image: radial-gradient(circle, #fff 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+
+    .dark-mode header,
+    .dark-mode section {
+        background-color: #222; /* kutular için koyu gri */
+        color: #fff;
+    }
+
+    .dark-mode a {
+        color: #fff;
+    }
+    /* Başlıklar dark mode’da görünür olsun */
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode h3 {
+        color: #fff; /* beyaz başlık */
+    }
+    .dark-mode footer {
+        color: #fff; /* beyaz yazı */
+        background-color: #000; /* arka plan siyah */
+    }
+
 nav ul {
     list-style: none; 
     display: flex;
@@ -84,4 +180,9 @@ footer {
     padding: 15px;
     color: #333;
     margin-top: 20px;
+    position: fixed; /* sabitlenir */
+    bottom: 0; /* ekranın en altına */
+    left: 0;
+    width: 100%; /* tam genişlik */
+    background-color: #fff9c4; /* pastel sarı arka plan */
 }
